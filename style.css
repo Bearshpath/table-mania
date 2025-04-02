@@ -1,0 +1,255 @@
+/* Basic Reset & Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #008C9E;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+}
+
+/* Main Container Styling */
+.main-container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* General Screen Styling */
+.screen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #00A1B0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Table Selection Screen Styles */
+#table-selection-screen h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 2.2em;
+}
+
+#table-selection-screen .subtitle {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.table-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 90%;
+    margin-bottom: 30px;
+    overflow-y: auto;
+    max-height: 60vh;
+    flex-grow: 1;
+    align-content: flex-start;
+    padding: 10px;
+}
+
+.table-button {
+    padding: 10px 5px;
+    font-size: 1.1em;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 60px;
+    text-align: center;
+}
+
+.table-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: white;
+}
+
+.table-button:active {
+    transform: scale(0.96);
+}
+
+.table-button.selected {
+    background-color: #FFD700;
+    color: #007A8A;
+    border-color: #FFD700;
+    font-weight: bold;
+}
+
+/* Action Button Styling */
+.action-button {
+    padding: 12px 30px;
+    font-size: 1.2em;
+    background-color: #FFD700;
+    color: #007A8A;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.action-button:hover {
+    background-color: #f0c800;
+}
+
+.action-button:active {
+    transform: scale(0.96);
+}
+
+.action-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Back Button */
+.back-btn {
+    padding: 8px 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+
+.back-btn:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Top Bar Styling */
+.top-bar {
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.2em;
+    opacity: 0.8;
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Central Display Styling */
+.central-display {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    padding: 20px;
+    text-align: center;
+    min-height: 100px;
+    width: 100%;
+}
+
+/* Feedback Styles */
+.feedback-correct { color: white; }
+.feedback-incorrect { color: #FF5757; }
+
+/* Keyboard Area Styling */
+.keyboard-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 10px;
+    padding: 10px 0 20px 0;
+    justify-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Key Button Styling */
+.key-button {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #007A8A;
+    background-color: transparent;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background-color 0.1s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    user-select: none;
+}
+
+.key-button::before {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px; right: 2px; bottom: 2px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.key-button:not(:disabled):hover { background-color: rgba(255, 255, 255, 0.1); }
+.key-button:not(:disabled):active { background-color: rgba(255, 255, 255, 0.2); }
+
+/* Disabled State for Answer Buttons */
+.key-button.disabled-state::before { border-color: transparent; }
+.key-button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .central-display { font-size: 2em; }
+    .key-button { width: 50px; height: 50px; font-size: 1em; }
+    .keyboard-area { gap: 8px; padding: 10px; grid-template-columns: repeat(auto-fit, minmax(45px, 1fr)); }
+    .table-button { font-size: 1em; padding: 8px 10px; }
+    #table-selection-screen h1 { font-size: 1.8em; }
+    .action-button { font-size: 1.1em; padding: 10px 25px; }
+}
+
+@media (max-width: 400px) {
+    .key-button { width: 45px; height: 45px; }
+    .keyboard-area { grid-template-columns: repeat(auto-fit, minmax(40px, 1fr)); }
+    .central-display { font-size: 1.8em; }
+    .top-bar { font-size: 1em; }
+    .table-button { font-size: 0.9em; min-width: 55px; }
+    .table-buttons-container { gap: 10px; }
+    #table-selection-screen h1 { font-size: 1.6em; }
+    .action-button { font-size: 1em; padding: 10px 20px; }
+}

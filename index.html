@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Mania</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to our CSS file -->
+</head>
+<body>
+    <div class="main-container">
+        <!-- Table Selection Screen (Initial Screen) -->
+        <div id="table-selection-screen" class="screen active">
+            <h1>Table Mania</h1>
+            <p class="subtitle">Select a multiplication table to practice</p>
+            
+            <div class="table-buttons-container">
+                <!-- Buttons for tables 10-40 will be generated here -->
+            </div>
+            
+            <button id="start-practice-btn" class="action-button">Start Practice</button>
+        </div>
+
+        <!-- Practice Screen (Current game screen) -->
+        <div id="practice-screen" class="screen">
+            <div class="top-bar">
+                <span id="table-info">Practicing: Table of X</span>
+                <button id="back-to-selection-btn" class="back-btn">Change Table</button>
+            </div>
+
+            <div class="central-display">
+                <span id="question-feedback">12 x 3 = ?</span>
+            </div>
+
+            <div class="keyboard-area">
+                <!-- Buttons will be dynamically added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
